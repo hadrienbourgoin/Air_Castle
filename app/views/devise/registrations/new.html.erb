@@ -14,7 +14,7 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
                 required: true,
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password", type: "password" } %>
     <%= f.input :first_name,
                 required: true,
                 input_html: { autocomplete: "first-name" } %>
@@ -24,6 +24,9 @@
     <%= f.input :username,
                 required: true,
                 input_html: { autocomplete: "username" } %>
+    <%= f.input :avatar,
+                required: true,
+                input_html: { autocomplete: "avatar" } %>
   </div>
 
   <div class="form-actions">

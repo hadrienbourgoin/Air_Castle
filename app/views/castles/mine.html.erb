@@ -1,0 +1,8 @@
+<div class="cards">
+  <% current_user.castles.each do |castle| %>
+      <div class="card">
+        <p class="title"><%= castle.name %></p>
+        <%= image_tag castle.photo, alt: "poster" %>
+      </div>
+  <% end %>
+</div>

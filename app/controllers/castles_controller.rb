@@ -1,10 +1,10 @@
 class CastlesController < ApplicationController
   before_action :set_user, only: %i[new create]
-  
+
   def index
     @castles = Castle.all
   end
-  def show 
+  def show
     @castle = Castle.find(params[:id])
   end
   def new
@@ -13,12 +13,23 @@ class CastlesController < ApplicationController
   def create
     @castle = Castle.new(castle_params)
     @castle.user = @user
-   
+
     if @castle.save
       redirect_to castle_path(@castle)
     else
-      render :new, status :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @castle = Castle.find(params[:id])
+  end
+
+  def update
+    @castle = Castle.find(params[:id])
+    @castle.update(castle_params)
+
+    redirect_to castle_path(@castle)
   end
 
   def destroy
@@ -33,5 +44,6 @@ class CastlesController < ApplicationController
   end
 
   def set_user
-    @user = user.find(params[:user_id])
+    @user = User.find(params[:user_id])
+  end
 end

@@ -1,0 +1,6 @@
+<h2><%= @castle.name %></h2>
+<p><%= @castle.address %></p>
+<p><%= @castle.description %></p>
+<p><%= @castle.price %></p>
+<%= link_to "delete", castles_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary" %>
+<%= link_to "edit", edit_castle_path(@castle), class: "btn btn-primary" %>

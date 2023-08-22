@@ -1,11 +1,11 @@
 class CastlesController < ApplicationController
-  before_action :set_user, only: %i[new create]
-
+  before_action :set_user, only: %i[ create show edit update destroy]
+  
   def index
     @castles = Castle.all
   end
 
-  def show
+  def show 
     @castle = Castle.find(params[:id])
   end
 
@@ -15,12 +15,12 @@ class CastlesController < ApplicationController
 
   def create
     @castle = Castle.new(castle_params)
-    @castle.user = @user
-
+    @castle.user = current_user
+   
     if @castle.save
       redirect_to castle_path(@castle)
     else
-      render :new, status: :unprocessable_entity
+       render :new, status: :unprocessable_entity
     end
   end
 
@@ -36,10 +36,10 @@ class CastlesController < ApplicationController
   private
 
   def castle_params
-    params.require(:castle).permit(:name, :address, :description, :price, :photo)
+    params.require(:castle).permit(:name, :address, :description, :price, :photos)
   end
 
   def set_user
-    @user = user.find(params[:user_id])
+    @user = User.find(params[:user_id])
   end
 end

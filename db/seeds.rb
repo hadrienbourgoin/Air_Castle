@@ -18,12 +18,11 @@ User.destroy_all
 end
 Castle.destroy_all
 20.times do
-  
+
   Castle.create(
     user: User.all.sample,
     name: Faker::Name.name,
               price: Faker::Commerce.price,
               address: Faker::Address.full_address,
-              description: Faker::Movie.quote,
-              photo: "https://a.cdn-hotels.com/gdcs/production12/d1130/83f1c8c6-e12d-4e69-8433-c5bbc90b5ad6.jpg")
+              description: Faker::Movie.quote)
 end

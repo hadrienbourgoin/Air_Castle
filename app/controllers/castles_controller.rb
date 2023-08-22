@@ -1,5 +1,5 @@
 class CastlesController < ApplicationController
-  before_action :set_user, only: %i[ create show edit update destroy]
+  before_action :set_user, only: %i[new create show edit update destroy]
   
   def index
     @castles = Castle.all
@@ -22,6 +22,17 @@ class CastlesController < ApplicationController
     else
        render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    @castle = Castle.find(params[:id])
+  end
+
+  def update
+    @castle = Castle.find(params[:id])
+    @castle.update(castle_params)
+
+    redirect_to castle_path(@castle)
   end
 
   def destroy

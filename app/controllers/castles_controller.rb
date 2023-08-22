@@ -30,7 +30,11 @@ class CastlesController < ApplicationController
     redirect_to castles_path
   end
 
+  def mine
+  end
+
   private
+
   def castle_params
     params.require(:castle).permit(:name, :address, :description, :price, :photos)
   end

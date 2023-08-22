@@ -1,9 +1,0 @@
-<h1>Home</h1>
-<%= link_to "sign-in", new_user_registration_path %>
-<% if user_signed_in? %>
-  <p>Hello <%= current_user.username %></p>
-  <%= link_to "Sign-out", destroy_user_session_path, data: { turbo_method: :delete } %>
-<% end %>
-<% User.all.each do |user| %>
-    <p><%= user.first_name %></p>
-  <% end %>

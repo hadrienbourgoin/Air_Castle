@@ -1,5 +1,5 @@
 class CastlesController < ApplicationController
-  before_action :set_user, only: %i[ create show edit update destroy]
+  before_action :set_user, only: %i[new create show edit update destroy]
 
   def index
     @castles = Castle.all

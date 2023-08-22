@@ -29,9 +29,10 @@ class CastlesController < ApplicationController
 
   private
   def castle_params
-    params.require(:castle).permit(:name, :address, :description, :price, :photo)
+    params.require(:castle).permit(:name, :address, :description, :price)
   end
 
   def set_user
     @user = user.find(params[:user_id])
+  end
 end

@@ -1,4 +1,4 @@
 class Castle < ApplicationRecord
   belongs_to :user
-  validates :user, :name, :price, :address, :description, :photo, presence: true
+  validates :user, :name, :price, :address, :description, presence: true
 end

@@ -2,7 +2,9 @@
   <% @castles.each do |castle| %>
       <div class="card">
         <p class="title"><%= castle.name %></p>
-        <%= image_tag castle.photo, alt: "poster" %>
+        <% if castle.photos.count > 0 %>>
+          <%= cl_image_tag castle.photos[0].key %>
+        <% end %>
       </div>
   <% end %>
 </div>

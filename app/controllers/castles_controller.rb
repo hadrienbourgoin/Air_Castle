@@ -2,7 +2,16 @@ class CastlesController < ApplicationController
   before_action :set_user, only: %i[new create  update destroy]
 
   def index
-    @castles = Castle.all
+    # @castles = Castle.all
+    @castles = Castle.geocoded
+    @markers = @castles.map do |castle|
+      {
+        lat: castle.latitude,
+        lng: castle.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { castle: castle }),
+        marker_html: render_to_string(partial: "marker", locals: { castle: castle })
+      }
+    end
   end
 
   def show

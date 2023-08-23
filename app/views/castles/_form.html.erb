@@ -1,17 +1,19 @@
-<div class="container background_castle">
+<div class="container background_castle font_castle">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-6">
       <%= simple_form_for(@castle) do |f| %>
         <div class="row">
-          <div class="col-6">
+          <div class="col-8">
             <%= f.input :name%>
           </div>
-            <%= f.input :address %>
-          <div class="col-6">
+           <div class="col-8">
+            <%= f.input :address, as: :string %>
+            </div>
+          <div class="col-4">
             <%= f.input :price %>
           </div>
-          <div class="col-6">
-            <%= f.input :description %>
+          <div class="col-8">
+            <%= f.input :description, as: :string %>
           </div>
         </div>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>

@@ -1,15 +1,25 @@
+.form-control {
+  height: 40px;
+  background-color: rgb(141, 189, 243) !important;
+  border-radius: 10px !important;
+}
+
 .btn-primary {
   color: rgb(252, 254, 254);
   padding: 8px 24px;
-  border-radius: 4px;
-  background: #d01023;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: #19b4e8;
   transition: background 0.3s ease;
-}
-
-input {
-  height: 40px;
 }
 
 .background_castle{
   background-image: url('https://cdn1.chambord.org/fr/wp-content/uploads/sites/2/2021/02/2021-Olivier-Marchant-1180x550.jpg')
+}
+
+.font_castle{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+  color: aliceblue !important;
+  border-color: rgb(34, 33, 33) !important;
+  font-weight: bold !important;
 }

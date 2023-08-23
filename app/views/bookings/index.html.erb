@@ -1,0 +1,7 @@
+index
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= booking.date_begin %></li>
+    <li><%= booking.date_end %></li>
+  <% end %>
+</ul>

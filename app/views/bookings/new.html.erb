@@ -1,0 +1,6 @@
+new
+<%= simple_form_for [@user ,@booking] do |f| %>
+  <%= f.date :date_begin %>
+  <%= f.date :date_end %>
+  <%= f.submit %>
+<% end %>

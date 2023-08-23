@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :username, presence: true, uniqueness: true, length: { minimum: 6 }
+
+  before_create do
+    self.avatar = "https://dessins-animes-hrd.appspot.com/img/dessins-animes/davidlegnome.jpg" if avatar.blank?
+  end
 end

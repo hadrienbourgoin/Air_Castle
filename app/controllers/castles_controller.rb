@@ -1,9 +1,9 @@
 class CastlesController < ApplicationController
-  before_action :set_user, only: %i[new create  update destroy]
+  before_action :set_user, only: %i[new create update destroy]
 
   def index
-    # @castles = Castle.all
     @castles = Castle.geocoded
+
     @markers = @castles.map do |castle|
       {
         lat: castle.latitude,

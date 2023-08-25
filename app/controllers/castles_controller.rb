@@ -3,6 +3,11 @@ class CastlesController < ApplicationController
 
   def index
     @castles = Castle.geocoded
+
+    if params[:query].present?
+      @castles = @castles.search(params[:query])
+    end
+
     if user_signed_in?
       if current_user.castles.count.positive?
         @castles = @castles.reject { |castle| current_user.castles.include?(castle) }

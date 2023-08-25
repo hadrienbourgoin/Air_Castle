@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.where(user: current_user)
+    @bookings = Booking.joins(:castle).where(user: current_user)
   end
 
   def show
@@ -8,18 +8,22 @@ class BookingsController < ApplicationController
   end
   
   def new
-    @user = User.find(params[:id])
+    @castle = Castle.find(params[:castle_id])
     @booking = Booking.new
   end
 
   def create
     @booking = Booking.where(user: current_user).new(booking_params)
-    @booking.save!
-    redirect_to bookings_path(current_user)
+    @booking.castle = Castle.find(params[:castle_id])
+    if @booking.save
+      redirect_to bookings_path()
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    @booking = Booking.current_user
+    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to bookings_path, status: :see_other
   end
@@ -30,5 +34,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:date_begin, :date_end)
   end
 
-  
 end

@@ -1,6 +1,9 @@
 new
-<%= simple_form_for [@user ,@booking] do |f| %>
-  <%= f.date :date_begin %>
-  <%= f.date :date_end %>
+<%= simple_form_for [@castle ,@booking] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :date_begin,as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :date_end,as: :string,
+            input_html: { data: { controller: "datepicker" } } %>
   <%= f.submit %>
 <% end %>

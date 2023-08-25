@@ -1,9 +1,12 @@
 new
-<%= simple_form_for [@castle ,@booking] do |f| %>
+<%= simple_form_for [@castle ,@booking],data: { controller:"datepicker" } do |f| %>
   <%= f.error_notification %>
-  <%= f.input :date_begin,as: :string,
+  <!--<%= f.input :date_begin,as: :string,
             input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :date_end,as: :string,
-            input_html: { data: { controller: "datepicker" } } %>
+            input_html: { data: { controller: "datepicker" } } %>-->
+  <%= text_field_tag "datebegindateend", nil , data: { datepicker_target: "picker" } %>
+  <%= f.hidden_field :date_begin, data: { datepicker_target: "start" } %>
+  <%= f.hidden_field :date_end, data: { datepicker_target: "end" } %>
   <%= f.submit %>
 <% end %>

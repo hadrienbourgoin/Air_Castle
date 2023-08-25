@@ -1,10 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
 
-// Connects to data-controller="datepicker"
 export default class extends Controller {
-  connect() {
-    flatpickr(this.element)
-  }
+  static targets = ["picker", "start", "end"]
 
+  connect() {
+    flatpickr(this.pickerTarget, {
+      mode: "range",
+      onChange: function(selectedDates, dateStr, instance) {
+        this.startTarget.value = selectedDates[0]
+        this.endTarget.value = selectedDates[1]
+      }.bind(this),
+    })
+  }
 }

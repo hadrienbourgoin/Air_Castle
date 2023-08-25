@@ -20,3 +20,25 @@
   font-size: 16px;
   color: gray;
 }
+
+.search-bar {
+  margin-right: 4px;
+  width: 400px;
+  background: white !important;
+  height: 41px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+}
+
+.search-btn {
+  margin-bottom: 0px !important;
+  background: white !important;
+  color: gray !important;
+  border-color: gray !important;
+  text-decoration: none !important;
+  font-weight: lighter !important;
+  border-radius: 10px;
+}
+.search-btn:hover {
+  background: rgba(215, 215, 215, 0.3) !important;
+}

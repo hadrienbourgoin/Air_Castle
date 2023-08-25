@@ -10,6 +10,18 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <div class="row justify-content-center search-container">
+          <div class="col-sm-8 search-inner-container">
+            <%= form_with url: castles_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "search-bar",
+                placeholder: "Type a keyword"
+              %>
+              <%= submit_tag "Search", name: "", class: "btn search-btn" %>
+            <% end %>
+          </div>
+        </div>
         <% if user_signed_in? %>
           <li class="nav-item active">
             <%= link_to "New Castle", new_castle_path, class: "nav-link" %>

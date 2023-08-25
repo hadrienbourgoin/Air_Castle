@@ -74,31 +74,31 @@ addresses = %i[20 rue des capucins, Lyon
   1200 N Courthouse Rd, Arlington, VA 22201, United States
   3211 Wilson Blvd, Arlington, VA 22201, United States]
 
-# upload = 1
-# 50.times do
-#   Cloudinary::Uploader.upload("https://commedesfrancais.com/uploads/images/global/main_pictures/5ea979aaea92d277586719.jpg",
-#                               folder: "development")
-#   p "#{200 - upload} uploads left"
-#   upload += 1
-# end
-# 50.times do
-#   Cloudinary::Uploader.upload("https://furansujapon.com/wp-content/uploads/2022/06/chateau-de-Matsumoto-1052x592.jpg",
-#                               folder: "development")
-#   p "#{200 - upload} uploads left"
-#   upload += 1
-# end
-# 50.times do
-#   Cloudinary::Uploader.upload("https://static.nationalgeographic.fr/files/styles/image_3200/public/Pyramids-at-Giza.ngsversion.1458139144541.png",
-#                               folder: "development")
-#   p "#{200 - upload} uploads left"
-#   upload += 1
-# end
-# 50.times do
-#   Cloudinary::Uploader.upload("https://www.neonmag.fr/imgre/fit/~1~NEO~2020~11~16~959a63fb-576c-40ca-b4d1-13716fd3d659.jpeg/1200x630/quality/80/avec-le-confinement-la-vente-de-manoirs-anglais-explose.jpg",
-#                               folder: "development")
-#   p "#{200 - upload} uploads left"
-#   upload += 1
-# end
+upload = 1
+50.times do
+  Cloudinary::Uploader.upload("https://commedesfrancais.com/uploads/images/global/main_pictures/5ea979aaea92d277586719.jpg",
+                              folder: "development")
+  p "#{200 - upload} uploads left"
+  upload += 1
+end
+50.times do
+  Cloudinary::Uploader.upload("https://furansujapon.com/wp-content/uploads/2022/06/chateau-de-Matsumoto-1052x592.jpg",
+                              folder: "development")
+  p "#{200 - upload} uploads left"
+  upload += 1
+end
+50.times do
+  Cloudinary::Uploader.upload("https://static.nationalgeographic.fr/files/styles/image_3200/public/Pyramids-at-Giza.ngsversion.1458139144541.png",
+                              folder: "development")
+  p "#{200 - upload} uploads left"
+  upload += 1
+end
+50.times do
+  Cloudinary::Uploader.upload("https://www.neonmag.fr/imgre/fit/~1~NEO~2020~11~16~959a63fb-576c-40ca-b4d1-13716fd3d659.jpeg/1200x630/quality/80/avec-le-confinement-la-vente-de-manoirs-anglais-explose.jpg",
+                              folder: "development")
+  p "#{200 - upload} uploads left"
+  upload += 1
+end
 response = Cloudinary::Search
                    .expression('resource_type:image AND folder="development"')
                    .sort_by('public_id', 'desc')

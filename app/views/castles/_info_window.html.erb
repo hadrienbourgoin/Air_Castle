@@ -1,1 +1,7 @@
-<%= link_to castle.name, castle_path(castle), class: "nav-link" %>
+<a href= <%= castle_path(castle) %> class="super-popup" >
+  <% if castle.photos.count > 0 %>
+    <%= cl_image_tag castle.photos[0].key %>
+  <% end %>
+  <p><%= castle.name %></p>
+  <p><%= castle.price %>€ / night</p>
+</a>

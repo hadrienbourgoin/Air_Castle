@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   flex-grow: 1;
+  margin: 0 16px;
 
   .title {
     font-weight: bold;
@@ -10,12 +11,20 @@
   .card {
     margin: 8px;
     border-style: none;
-    width: 250px;
+    width: 280px;
   }
 
   img {
     border-radius: 16px;
-    height: 250px;
+    height: 240px;
     width: 100%;
+  }
+  .card:hover img {
+    filter: brightness(90%);
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
   }
 }

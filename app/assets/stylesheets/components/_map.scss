@@ -1,8 +1,55 @@
-.super-popup {
-  max-width: 200px !important;
-  background: white;
-  border: 1px solid black;
+.mapboxgl-popup {
+  width: 240px;
+  height: 240px;
+  background: none;
+  border: none;
   padding: 8px;
+  text-decoration: none;
+  z-index: 2;
+
+  .mapboxgl-popup-content {
+    border-radius: 16px;
+    font-size: 16px;
+    padding: 0px;
+    width: 240px;
+    height: 240px;
+  }
+
+  img {
+    width: 100%;
+    height: 180px;
+    border-top-right-radius: 16px;
+    border-top-left-radius: 16px;
+    margin-bottom: 8px;
+    outline: none;
+  }
+
+  p {
+    margin-bottom: 0px;
+  }
+
+  .mapboxgl-popup-close-button {
+    font-size: 24px;
+    width: 28px;
+    height: 28px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50%;
+    color: rgb(250, 250, 250);
+  }
+
+  .mapboxgl-popup-close-button:hover {
+    background: rgba(0, 0, 0, 0.6);
+  }
+
+  a {
+    text-decoration: none !important;
+    color: black;
+    outline: none;
+  }
+
+  .mapboxgl-popup-tip {
+    border: none;
+  }
 }
 
 .super-map {
@@ -10,5 +57,22 @@
   top: 66px !important;
   height: calc(100vh - 66px) !important;
   width: 100%;
-  
+}
+
+.mapboxgl-marker {
+  background: white;
+  padding: 4px;
+  border: 1px solid black;
+  border-radius: 16px;
+  width: 40px;
+  height: 32px;
+}
+.mapboxgl-marker:hover {
+  width: 44px;
+  height: 36px;
+}
+
+.mapboxgl-marker:has(> svg) {
+  background: none;
+  border: none;
 }

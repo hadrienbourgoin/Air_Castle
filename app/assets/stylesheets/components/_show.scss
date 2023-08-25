@@ -1,5 +1,8 @@
 
-.row {
+.super-row {
+  margin: 16px 16px;
+  width: 96%;
+
   p{
     text-align: center;
     color: rgb(51, 100, 245);
@@ -30,21 +33,21 @@
     overflow: hidden;
     padding: 0px;
     gap:8px;
-    margin-bottom: 15px;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
   }
 
   .cadre{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:8px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:8px;
     }
 
   .card{
     margin: 0 !important;
+    width: 100% !important;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 }

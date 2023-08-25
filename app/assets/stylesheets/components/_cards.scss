@@ -32,13 +32,14 @@
   display: grid;
   grid-template-columns: 1fr;
   flex-grow: 1;
+  margin: 16px;
 }
 
 .card-booking {
   flex-direction: row !important;
   border-style: none;
   box-shadow: 10px 5px 5px grey;
-  border-radius: 6%;
+  border-radius: 8%;
   background-color: white;
 
   link {

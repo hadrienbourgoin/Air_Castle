@@ -1,14 +1,21 @@
-<div class="d-flex" style="width: 100vw;">
+<div class="super-flex">
   <div class="cards">
-  <% @castles.each do |castle| %>
-      <div class="card">
-        <p class="title"><%= castle.name %></p>
+  <% castles = @castles %>
+  <% if user_signed_in? %>
+    <% if current_user.castles.count > 0 %>
+      <% castles = @castles.reject { |castle| current_user.castles.include?(castle) } %>
+    <% end %>
+  <% end %>
+  <% castles.each do |castle| %>
+    <div class="card">
+      <a href= <%= castle_path(castle) %> >
         <% if castle.photos.count > 0 %>
-          <a href= <%= castle_path(castle) %> >
-            <%= cl_image_tag castle.photos[0].key %>
-          </a>
+          <%= cl_image_tag castle.photos[0].key %>
         <% end %>
-      </div>
+        <p class="title"><%= castle.name %></p>
+        <p><%= castle.price %>€ / night</p>
+      </a>
+    </div>
   <% end %>
   </div>
   <div class="super-map"

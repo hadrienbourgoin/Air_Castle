@@ -28,6 +28,8 @@
   <div class="d-flex justify-content-end">
     <div class="contour d-flex flex-column">
       <h1>My booking</h1>
+      <p><%= @booking.castle.name %></p>
+      <p>Booked by <%= @booking.user.username %></p>
       <p><%= @booking.date_begin %></p>
       <p><%= @booking.date_end %></p>
       <P><%= (@booking.date_end - @booking.date_begin).to_i * @booking.castle.price %>€</P>

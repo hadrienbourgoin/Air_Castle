@@ -4,9 +4,9 @@ class BookingsController < ApplicationController
   end
 
   def show
-    @booking = Booking.where(user: current_user).find(params[:id])
+    @booking = Booking.find(params[:id])
   end
-  
+
   def new
     @castle = Castle.find(params[:castle_id])
     @booking = Booking.new
@@ -27,9 +27,9 @@ class BookingsController < ApplicationController
     @booking.destroy
     redirect_to bookings_path, status: :see_other
   end
-  
+
   private
-  
+
   def booking_params
     params.require(:booking).permit(:date_begin, :date_end)
   end

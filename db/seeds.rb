@@ -15,6 +15,7 @@ User.create!(email: "test@gmail.com",
              last_name: "test",
              username: "azerty",
              avatar: "https://dessins-animes-hrd.appspot.com/img/dessins-animes/davidlegnome.jpg")
+
 20.times do
   password = Faker::Internet.password
   User.create!(email: Faker::Internet.email,

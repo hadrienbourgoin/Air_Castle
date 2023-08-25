@@ -1,17 +1,19 @@
-<div class="d-flex">
+<div class="d-flex" style="width: 100vw;">
   <div class="cards">
   <% @castles.each do |castle| %>
       <div class="card">
         <p class="title"><%= castle.name %></p>
         <% if castle.photos.count > 0 %>
-          <%= cl_image_tag castle.photos[0].key %>
+          <a href= <%= castle_path(castle) %> >
+            <%= cl_image_tag castle.photos[0].key %>
+          </a>
         <% end %>
       </div>
   <% end %>
   </div>
-  <div style="width: 50%; height: 600px;"
-              data-controller="map"
-              data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div class="super-map"
+       data-controller="map"
+       data-map-markers-value="<%= @markers.to_json %>"
+       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>

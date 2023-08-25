@@ -1,8 +1,21 @@
 .cards {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  flex-grow: 1;
+
+  .title {
+    font-weight: bold;
+  }
 
   .card {
     margin: 8px;
+    border-style: none;
+    width: 250px;
+  }
+
+  img {
+    border-radius: 16px;
+    height: 250px;
+    width: 100%;
   }
 }

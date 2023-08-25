@@ -1,6 +1,15 @@
 .super-flex {
   display: flex;
-  // width: calc(100vw - 32px);
   width: 100%;
   justify-content: space-between;
+}
+
+.c-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+
+  .column {
+    margin: 16px;
+  }
 }

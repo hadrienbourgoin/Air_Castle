@@ -51,7 +51,7 @@ class CastlesController < ApplicationController
   def destroy
     @castle = Castle.find(params[:id])
     @castle.destroy
-    redirect_to castles_path
+    redirect_to castles_path, status: :see_other
   end
 
   def mine

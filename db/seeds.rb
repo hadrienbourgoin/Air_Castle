@@ -99,6 +99,7 @@ addresses = %i[20 rue des capucins, Lyon
 #   p "#{200 - upload} uploads left"
 #   upload += 1
 # end
+
 response = Cloudinary::Search
                    .expression('resource_type:image AND folder="development"')
                    .sort_by('public_id', 'desc')

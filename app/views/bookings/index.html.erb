@@ -1,48 +1,110 @@
-<h1>Trips</h1>
-<h2>Upcoming reservations</h2>
 <div class="principale" style="width: 50vw;">
-  <% @bookings.each do |booking| %>
-    <%# card %>
-    <a href=<%= booking_path(booking) %>>
-      <div class="card-booking d-flex flex-row;">
-        <div class="infos d-flex">
-          <%# nom %>
-          <div class="bookingname">
-            <%= booking.castle.name  %>
-          </div>
-          <%# booking %>
-          <div class="dateaddress d-flex border-top">
-            <%# date %>
-            <div class="datebegdate border-end">
-              <%= booking.date_begin.strftime("%b %d-") %>         
-              <%= booking.date_end.strftime("%d %Y") %>
-            </div>
-            <%# adresse d.strftime("at %I:%M%p") %>
-            <div class="adddesc">
-              <%= booking.castle.address %>
-              <%= booking.castle.description %>
-            </div>
+  <h1>Trips</h1>
+  <h2>Upcoming reservations</h2>
+  <div class="c-2">
+    <% if user_signed_in? %>
+      <div class="column">
+        <h4>Your bookings</h4>
+        <% my_bookings = current_user.bookings %>
+        <% if my_bookings.count.positive? %>
+          <% my_bookings.each do |booking| %>
+            <%# card %>
+            <a href=<%= booking_path(booking) %>>
+              <div class="card-booking d-flex flex-row;">
+                <div class="infos d-flex">
+                  <%# nom %>
+                  <div class="bookingname">
+                    <%= booking.castle.name  %>
+                  </div>
+                  <%# booking %>
+                  <div class="dateaddress d-flex border-top">
+                    <%# date %>
+                    <div class="datebegdate border-end">
+                      <%= booking.date_begin.strftime("%b %d-") %>
+                      <%= booking.date_end.strftime("%d %Y") %>
+                    </div>
+                    <%# adresse d.strftime("at %I:%M%p") %>
+                    <div class="adddesc">
+                      <%= booking.castle.address %>
+                      <%= booking.castle.description %>
+                    </div>
 
-          </div>
-          <%# delete %>
-          <div class="deletebooking d-flex">
-          <%= link_to "Delete",
-            booking_path(booking),
-            data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-          %>
-          </div>
-        </div>
-        <div class="img-container">
-          <% if booking.castle.photos.count > 0 %>
-          <a href=<%= booking_path(booking) %>>
-              <%= cl_image_tag(booking.castle.photos[0].key, :width=>"100%", class:"img-container") %>
-              </a>
+                  </div>
+                  <%# delete %>
+                  <div class="deletebooking d-flex">
+                  <%= link_to "Delete",
+                    booking_path(booking),
+                    data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                  %>
+                  </div>
+                </div>
+                <% if booking.castle.photos.count.positive? %>
+                  <a href=<%= booking_path(booking) %>>
+                    <%= cl_image_tag(booking.castle.photos[0].key, :width=>"500px", :class=>"img-container") %>
+                  </a>
+                <% end %>
+              </div>
+            </a>
           <% end %>
-        </div>
-      </div>    
-    </a>
+        <% end %>
+      </div>
 
-    
-  <% end %>
-</div> 
+      <div class="column">
+        <h4>Your castles bookings</h4>
+            <% my_castles_bookings = [] %>
+            <% if current_user.castles.count.positive? %>
+              <% current_user.castles.each do |castle| %>
+                <% if castle.bookings.count.positive? %>
+                  <% castle.bookings.each do |booking| %>
+                    <% my_castles_bookings << booking %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+            <% if my_castles_bookings.count.positive? %>
+              <% my_castles_bookings.each do |booking| %>
+                <%# card %>
+                <a href=<%= booking_path(booking) %>>
+                  <div class="card-booking d-flex flex-row;">
+                    <div class="infos d-flex">
+                      <%# nom %>
+                      <div class="bookingname">
+                        <%= booking.castle.name  %>
+                      </div>
+                      <%# booking %>
+                      <div class="dateaddress d-flex border-top">
+                        <%# date %>
+                        <div class="datebegdate border-end">
+                          <%= booking.date_begin.strftime("%b %d-") %>
+                          <%= booking.date_end.strftime("%d %Y") %>
+                        </div>
+                        <%# adresse d.strftime("at %I:%M%p") %>
+                        <div class="adddesc">
+                          <%= booking.castle.address %>
+                          <%= booking.castle.description %>
+                        </div>
 
+                      </div>
+                      <%# delete %>
+                      <div class="deletebooking d-flex">
+                      <%= link_to "Delete",
+                        booking_path(booking),
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                      %>
+                      </div>
+                    </div>
+                    <div class="img-container">
+                      <% if booking.castle.photos.count > 0 %>
+                      <a href=<%= booking_path(booking) %>>
+                          <%= cl_image_tag(booking.castle.photos[0].key, :width=>"100%", class:"img-container") %>
+                          </a>
+                      <% end %>
+                    </div>
+                  </div>
+                </a>
+              <% end %>
+            <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

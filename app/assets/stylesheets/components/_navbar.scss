@@ -4,6 +4,7 @@
   position: sticky !important;
   top: 0 !important;
   z-index: 1;
+  vertical-align: baseline;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -12,4 +13,11 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.username {
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  color: gray;
 }

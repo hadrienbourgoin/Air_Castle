@@ -1,8 +1,16 @@
 <div class="cards">
-  <% current_user.castles.each do |castle| %>
-      <div class="card">
-        <p class="title"><%= castle.name %></p>
-        <%= image_tag castle.photo, alt: "poster" %>
-      </div>
+  <% if user_signed_in? %>
+    <% if current_user.castles.count > 0 %>
+      <% current_user.castles.each do |castle| %>
+          <div class="card">
+            <p class="title"><%= castle.name %></p>
+            <% if castle.photos.count > 0 %>
+              <a href= <%= castle_path(castle) %> >
+                <%= cl_image_tag castle.photos[0].key %>
+              </a>
+            <% end %>
+          </div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

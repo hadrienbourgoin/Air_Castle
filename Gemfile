@@ -81,3 +81,4 @@ gem "devise"
 gem "faker"
 gem "cloudinary"
 gem "geocoder"
+gem 'active_storage_validations'

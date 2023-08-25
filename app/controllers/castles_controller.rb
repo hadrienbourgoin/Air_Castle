@@ -1,9 +1,13 @@
 class CastlesController < ApplicationController
-  before_action :set_user, only: %i[new create update destroy]
+  before_action :set_user, only: %i[index new create update destroy]
 
   def index
     @castles = Castle.geocoded
-
+    if user_signed_in?
+      if current_user.castles.count.positive?
+        @castles = @castles.reject { |castle| current_user.castles.include?(castle) }
+      end
+    end
     @markers = @castles.map do |castle|
       {
         lat: castle.latitude,

@@ -11,7 +11,7 @@
     <div class="carousel-inner">
       <% @booking.castle.photos.each_with_index do |photo, index| %>
         <div class="carousel-item <%= "active" if index == 0 %>">
-          <%= cl_image_tag photo.key, class: "d-block w-100" %>
+          <%= cl_image_tag photo.key, class: "d-block" %>
         </div>
       <% end %>
     </div>
@@ -25,14 +25,19 @@
     </a>
   </div>
 </div>
-  <div class="d-flex justify-content-end">
-    <div class="contour d-flex flex-column">
-      <h1>My booking</h1>
-      <p><%= @booking.castle.name %></p>
-      <p>Booked by <%= @booking.user.username %></p>
-      <p><%= @booking.date_begin %></p>
-      <p><%= @booking.date_end %></p>
-      <P><%= (@booking.date_end - @booking.date_begin).to_i * @booking.castle.price %>€</P>
-
-    </div>
+<div class="d-flex justify-content-end">
+  <div class="contour d-flex flex-column">
+    <h3>My booking</h3>
+    <p><%= @booking.castle.name %></p>
+    <p>Booked by <%= @booking.user.username %></p>
+    <p>from: <%= @booking.date_begin %></p>
+    <p>to: <%= @booking.date_end %></p>
+    <p><%= @booking.castle.price %>€ / night</p>
+    <P><%= (@booking.date_end - @booking.date_begin).to_i * @booking.castle.price %>€</P>
+    <%= link_to "Delete",
+        booking_path(@booking),
+        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+        class: "btn-super"
+    %>
   </div>
+</div>

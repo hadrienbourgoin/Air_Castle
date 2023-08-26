@@ -5,6 +5,7 @@ class Castle < ApplicationRecord
   geocoded_by :address
 
   validates :user, :name, :price, :address, :description, presence: true
+  validates :name, length: { within: (6..30) }
 
   validates :photos, limit: { min: 0, max: 5 }
 

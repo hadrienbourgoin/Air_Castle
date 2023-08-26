@@ -1,18 +1,15 @@
 
 .super-row {
   margin: 16px 16px;
-  width: 96%;
+  width: calc(100vw - 50px);
 
   p{
     text-align: center;
-    color: rgb(51, 100, 245);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
     margin: 0px;
   }
 
-  h2{
-    color: rgb(241, 139, 37);
+  h3{
     border-width: 100px;
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -20,19 +17,15 @@
     text-shadow: 0px 1px 0px black;
   }
 
-  .btn-primary{
-    text-align: center !important;
-    font-weight: bold !important;
-    text-shadow: 0px 1px 0px black !important;
-  }
-
-  .cards{
+  .cards-show {
     display:grid;
     grid-template-columns: 1fr 1fr;
     border-radius: 12px;
     overflow: hidden;
     padding: 0px;
     gap:8px;
+    height: 400px;
+    margin-bottom: 4px;
   }
 
   .cadre{

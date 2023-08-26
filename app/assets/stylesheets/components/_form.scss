@@ -1,6 +1,6 @@
 .form-control {
   height: 40px;
-  background-color: rgb(141, 189, 243) !important;
+  background-color: white !important;
   border-radius: 10px !important;
 }
 
@@ -16,7 +16,11 @@
 }
 
 .background_castle{
-  background-image: url('https://cdn1.chambord.org/fr/wp-content/uploads/sites/2/2021/02/2021-Olivier-Marchant-1180x550.jpg')
+  background-image: url('https://cdn1.chambord.org/fr/wp-content/uploads/sites/2/2021/02/2021-Olivier-Marchant-1180x550.jpg');
+  width: 1150px;
+  margin-top: 16px;
+  height: 500px;
+  padding-top: 16px;
 }
 
 .font_castle{

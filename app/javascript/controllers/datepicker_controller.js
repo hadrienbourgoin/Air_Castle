@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr"; // You need to import this to use new flatpickr()
 
 export default class extends Controller {
-  static targets = ["picker", "start", "end"]
+  static targets = ["picker", "start", "end", "bookingform"]
 
   connect() {
     flatpickr(this.pickerTarget, {
@@ -12,5 +12,9 @@ export default class extends Controller {
         this.endTarget.value = selectedDates[1]
       }.bind(this),
     })
+  }
+
+  toggle() {
+    this.bookingformTarget.classList.toggle("d-none")
   }
 }

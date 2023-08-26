@@ -1,7 +1,7 @@
 
 <div class="row super-row">
     <% if @castle.photos.count > 0 %>
-      <div class="cards">
+      <div class="cards-show">
           <div>
             <%= cl_image_tag (@castle.photos.first.key) %>
           </div>
@@ -15,16 +15,28 @@
       </div>
     <% end %>
   <div class= "col-6">
-      <h2><%= @castle.name %></h2>
+      <h3><%= @castle.name %></h3>
       <p><%= @castle.price %>€ / night</p>
       <p><%= @castle.address %></p>
       <p><%= @castle.description %></p>
       <div class="d-flex justify-content-center gap-2">
         <% if @castle.user == current_user %>
-          <%= link_to "Delete", castles_path(@castle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-primary " %>
-          <%= link_to "Edit", edit_castle_path(@castle), class: "btn btn-primary" %>
+          <%= link_to "Delete", castles_path(@castle), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn-super" %>
+          <%= link_to "Edit", edit_castle_path(@castle), class: "btn-super" %>
         <% else %>
-          <%= link_to "Book this castle", new_castle_booking_path(@castle), class: "btn btn-primary" %>
+          <div data-controller="datepicker" >
+            <button data-action="click->datepicker#toggle" class="btn-super">Book this castle</button>
+
+            <div class="d-none" data-datepicker-target="bookingform" >
+              <%= simple_form_for [@castle, Booking.new] do |f| %>
+                <%= f.error_notification %>
+                <%= text_field_tag "datebegindateend", "Choose date", data: { datepicker_target: "picker" } %>
+                <%= f.hidden_field :date_begin, data: { datepicker_target: "start" } %>
+                <%= f.hidden_field :date_end, data: { datepicker_target: "end" } %>
+                <%= f.submit %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
    </div>

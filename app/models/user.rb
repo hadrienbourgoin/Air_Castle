@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :username, presence: true, uniqueness: true, length: { minimum: 6 }
+  validates :username, presence: true, uniqueness: true, length: { within: (6..14) }
 
   before_create do
     self.avatar = "https://dessins-animes-hrd.appspot.com/img/dessins-animes/davidlegnome.jpg" if avatar.blank?

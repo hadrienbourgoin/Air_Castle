@@ -12,6 +12,7 @@
     margin: 8px;
     border-style: none;
     width: 260px;
+    font-size: 16px;
   }
 
   img {
@@ -31,8 +32,12 @@
 .principale {
   display: grid;
   grid-template-columns: 1fr;
-  flex-grow: 1;
   margin: 16px;
+  width: calc(100vw - 100px) !important;
+
+  a {
+    color: black;
+  }
 }
 
 .card-booking {
@@ -41,6 +46,7 @@
   box-shadow: 10px 5px 5px grey;
   border-radius: 8%;
   background-color: white;
+  margin: 4px;
 
   link {
     color:black !important;
